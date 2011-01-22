@@ -1,4 +1,6 @@
 McpPants::Application.routes.draw do
+  resources :foos
+
   resources :players
 
   resources :worlds
