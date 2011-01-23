@@ -2,15 +2,15 @@ require 'thread'
 require 'open3'
 class ServerWrapper
   class << self
-    def self.start
+    def start
       @@single = ServerWrapper.new
     end
 
-    def self.run(command)
+    def run(command)
       @@single.run(command)
     end
 
-    def self.stop
+    def stop
       @@single.stop
     end
   end

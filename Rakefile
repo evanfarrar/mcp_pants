@@ -5,3 +5,10 @@ require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
 McpPants::Application.load_tasks
+
+begin
+  require 'vlad'
+  Vlad.load(:app => 'passenger', :scm => 'git')
+rescue LoadError
+  # do nothing
+end

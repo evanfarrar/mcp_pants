@@ -1,0 +1,24 @@
+create LogEvent objects for every line.
+
+logs page
+  -paginated list of 
+
+index page
+  -currently online players
+
+player page
+  -last log in
+  -give menu
+  -status (online/offline)
+  -inventory*
+  -spawn point*
+
+worlds
+  -name
+  -players who have used this world
+
+
+pie in the sky
+  -map of the world
+  -current time in-game
+  -block stats (destroyed, placed, moved, etc)

@@ -1,0 +1,7 @@
+require 'sinatra'
+ServerWrapper.start
+set :bind, 'localhost'
+set :port, 4567
+post '/' do
+  ServerWrapper.run params[:command]
+end

@@ -7,6 +7,8 @@ gem 'rails', '3.0.3'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'open4'
+gem "will_paginate", "~> 3.0.pre2"
+gem 'sinatra'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -32,3 +34,6 @@ group :development, :test do
    gem 'rspec-rails'
 end
 
+group :development do
+  gem 'vlad', :git => 'https://github.com/gabrielg/vlad.git'
+end

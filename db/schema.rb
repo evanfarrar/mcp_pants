@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20110122172420) do
   end
 
   create_table "log_events", :force => true do |t|
+    t.string   "message"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
