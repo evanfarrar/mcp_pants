@@ -1,5 +1,6 @@
-PATH
-  remote: vendor/vlad
+GIT
+  remote: git://github.com/gabrielg/vlad
+  revision: f22a00efe673266570b97243251e78a84f6775ae
   specs:
     vlad (1.2.3)
       open4

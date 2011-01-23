@@ -13,6 +13,11 @@ remote_task "vlad:minecraft" do
   run "god minecraft restart"
 end
 
+
+remote_task "vlad:actually_update" do
+  run "cd #{deploy_to}/scm/repo; git pull"
+end
+
 task "vlad:deploy" => %w[
-    vlad:update vlad:bundle:install vlad:start_app vlad:cleanup
+    vlad:update vlad:actually_update vlad:migrate vlad:bundle:install vlad:start_app vlad:cleanup
 ]
