@@ -1,12 +1,19 @@
 <div class="generic nineforty">
   <h1>Player Profile: <%= @player.name %></h1>
 </div>
-<div class="generic nineforty">
+<div class="generic twotwenty">
   <h2>Recent Chats</h2>
   <% @player.chat_messages.each do |chat_message| %>
-
-    <div class="nineforty float-left">
-      <%= chat_message.message %>
-    </div>
+    <p><%= chat_message.message %></p>
+  <% end %>
+</div>
+<div class="generic twotwenty">
+  <h1>Actions</h1>
+  <h3>Teleport</h3>
+  <%= form_for Teleport.new(:from => @player.id) do |form| %>
+    <%= form.label :to %>
+    <%= form.select :to, options_from_collection_for_select(Player.all - [@player], :id, :name) %>
+    <%= form.hidden_field :from %>
+    <%= form.submit %>
   <% end %>
 </div>

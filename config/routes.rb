@@ -3,6 +3,7 @@ McpPants::Application.routes.draw do
   resources :worlds
   resources :chat_messages
   resources :log_events
+  resources :teleports
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
