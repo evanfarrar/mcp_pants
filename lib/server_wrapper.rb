@@ -18,7 +18,7 @@ class ServerWrapper
   cattr_accessor :single
   
   def initialize
-    server = "java -Xmx1024M -Xms1024M -jar tmp/minecraft/minecraft_server.jar nogui"
+    server = "cd /data/minecraft && java -Xmx1024M -Xms1024M -jar minecraft_server.jar nogui"
     #stdin, stdout, stderr, wait_thr = Open3.popen3(server)
     @pid, @server_in, @server_out, @server_err = Open4::popen4(server)
 
