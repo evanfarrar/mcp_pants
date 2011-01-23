@@ -13,6 +13,9 @@
 ActiveRecord::Schema.define(:version => 20110122172420) do
 
   create_table "chat_messages", :force => true do |t|
+    t.string   "message"
+    t.integer  "log_event_id"
+    t.integer  "player_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -24,6 +27,8 @@ ActiveRecord::Schema.define(:version => 20110122172420) do
   end
 
   create_table "players", :force => true do |t|
+    t.string   "name"
+    t.datetime "last_logged_in_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,0 +1,11 @@
+<div class="generic nineforty">
+  <h1>Recent Chat</h1>
+  <% @chat_messages.each do |chat_message| %>
+    <div class="nineforty left-float">
+      &lt;<%= link_to chat_message.player.name, player_path(chat_message.player) %>&gt; <%= chat_message.message %>
+    </div>
+  <% end %>
+  <div class="nineforty left-float">
+    <%= will_paginate @chat_messages %>
+  </div>
+</div>

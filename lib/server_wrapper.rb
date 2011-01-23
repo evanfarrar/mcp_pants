@@ -32,6 +32,7 @@ class ServerWrapper
       if out_reader.nil?
           @server_out.each_line do |line|
             puts line
+            LogEvent.create!(:message => line)
           end
         sleep 0.1
       end
@@ -41,6 +42,7 @@ class ServerWrapper
         @server_err.each_line do |line|
           line.strip!
           puts line
+          LogEvent.create!(:message => line)
         end
         sleep 0.1
       end

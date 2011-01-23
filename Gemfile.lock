@@ -38,9 +38,12 @@ GEM
     activesupport (3.0.3)
     arel (2.0.7)
     builder (2.1.2)
+    crack (0.1.8)
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    httparty (0.7.3)
+      crack (= 0.1.8)
     i18n (0.4.2)
     mail (2.2.10)
       activesupport (>= 2.3.6)
@@ -97,6 +100,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  httparty
   open4
   rails (= 3.0.3)
   rspec

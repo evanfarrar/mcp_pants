@@ -9,6 +9,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'open4'
 gem "will_paginate", "~> 3.0.pre2"
 gem 'sinatra'
+gem 'httparty'
 
 # Use unicorn as the web server
 # gem 'unicorn'

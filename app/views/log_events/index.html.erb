@@ -1,0 +1,11 @@
+<div class="generic nineforty">
+  <h1>Recent Server Logs</h1>
+  <% @log_events.each do |log_event| %>
+    <div class="nineforty left-float">
+      <%= log_event.message %>
+    </div>
+  <% end %>
+  <div class="nineforty left-float">
+    <%= will_paginate @log_events %>
+  </div>
+</div>

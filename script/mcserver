@@ -1,7 +1,9 @@
 require 'sinatra'
+require 'config/environment.rb'
 ServerWrapper.start
 set :bind, 'localhost'
 set :port, 4567
 post '/' do
   ServerWrapper.run params[:command]
+  "yeehaw"
 end
