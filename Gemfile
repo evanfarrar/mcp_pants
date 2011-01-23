@@ -36,5 +36,5 @@ group :development, :test do
 end
 
 group :development do
-  gem 'vlad', :git => 'https://github.com/gabrielg/vlad.git'
+  gem 'vlad', :path => 'vendor/vlad'
 end

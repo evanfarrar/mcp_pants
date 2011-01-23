@@ -2,6 +2,7 @@ set :application, "mcp_pants"
 set :domain, "creeperrape.net"
 set :deploy_to, "/data/mcp_pants"
 set :repository, 'git://github.com/evanfarrar/mcp_pants.git'
+set :revision, "master"
 
 
 remote_task "vlad:bundle:install" do

@@ -1,6 +1,5 @@
-GIT
-  remote: https://github.com/gabrielg/vlad.git
-  revision: f22a00efe673266570b97243251e78a84f6775ae
+PATH
+  remote: vendor/vlad
   specs:
     vlad (1.2.3)
       open4
