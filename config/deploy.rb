@@ -18,6 +18,15 @@ remote_task "vlad:actually_update" do
   run "cd #{deploy_to}/scm/repo; git pull"
 end
 
+remote_task "vlad:symlink_minecraft" do
+  run "ln -s #{deploy_to}/shared/minecraft #{deploy_to}/current/tmp/server"
+end
+
 task "vlad:deploy" => %w[
-    vlad:update vlad:actually_update vlad:migrate vlad:bundle:install vlad:start_app vlad:cleanup
+    vlad:update 
+    vlad:actually_update
+    vlad:bundle:install
+    vlad:migrate
+    vlad:symlink_minecraft
+    vlad:start_app vlad:cleanup
 ]

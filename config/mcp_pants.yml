@@ -1,0 +1,3 @@
+starting_world: default
+minecraft_jar: /data/mindcraft/minecraft_server.jar
+server_memory: 512

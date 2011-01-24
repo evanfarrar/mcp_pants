@@ -1,0 +1,1 @@
+configatron.configure_from_yaml "config/mcp_pants.yml"

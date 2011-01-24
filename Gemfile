@@ -10,6 +10,7 @@ gem 'open4'
 gem "will_paginate", "~> 3.0.pre2"
 gem 'sinatra'
 gem 'httparty'
+gem 'configatron'
 
 # Use unicorn as the web server
 # gem 'unicorn'

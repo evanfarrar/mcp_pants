@@ -38,6 +38,8 @@ GEM
     activesupport (3.0.3)
     arel (2.0.7)
     builder (2.1.2)
+    configatron (2.6.4)
+      yamler (>= 0.1.0)
     crack (0.1.8)
     diff-lcs (1.1.2)
     erubis (2.6.6)
@@ -95,11 +97,13 @@ GEM
       polyglot (>= 0.3.1)
     tzinfo (0.3.23)
     will_paginate (3.0.pre2)
+    yamler (0.1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  configatron
   httparty
   open4
   rails (= 3.0.3)

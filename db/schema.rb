@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110122172420) do
+ActiveRecord::Schema.define(:version => 20110123172420) do
 
   create_table "chat_messages", :force => true do |t|
     t.string   "message"
@@ -34,8 +34,13 @@ ActiveRecord::Schema.define(:version => 20110122172420) do
   end
 
   create_table "worlds", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string  "level_name"
+    t.boolean "hello_world"
+    t.boolean "spawn_monsters"
+    t.boolean "spawn_animals"
+    t.boolean "online_mode"
+    t.integer "max_players"
+    t.boolean "pvp"
   end
 
 end

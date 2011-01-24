@@ -1,0 +1,18 @@
+<div class="generic nineforty">
+  <h1>Worlds</h1>
+</div>
+<div class="generic nineforty">
+  <ol>
+    <% @worlds.each do |world| %>
+      <li>
+        <%= link_to world.level_name, world_path(world) %>
+        (<%= link_to "edit", edit_world_path(world) %>,
+        <%= link_to "use", world_path(world,:world =>{:use => true}),:method => :put %>)
+      </li>
+    <% end %>
+  </ol>
+
+  <p>
+    <%= link_to "Create a new world", new_world_path %>
+  </p>
+</div>

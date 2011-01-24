@@ -21,6 +21,11 @@
       <%= link_to "Chat Logs", chat_messages_path %>
       &middot;
       <%= link_to "Player Profiles", players_path %>
+      &middot;
+      <%= link_to "Worlds", worlds_path %>
+    </span>
+    <span id="notifications">
+      <%= flash[:notification] %>
     </span>
   </div>
   <%= yield %>
@@ -31,6 +36,8 @@
       <%= link_to "Chat Logs", chat_messages_path %>
       &middot;
       <%= link_to "Player Profiles", players_path %>
+      &middot;
+      <%= link_to "Worlds", worlds_path %>
     </p>
     <a href="http://www.colourlovers.com/pattern/1579/Pebbly" target="_blank">Pattern and pallette: Pebbly by Bellabie</a>
   </div>
