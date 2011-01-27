@@ -2,15 +2,24 @@
   <h1>MCPPANTS &mdash; Helping minecraft one leg at a time.</h1>
 </div>
 <div class="generic nineforty">
-  <h2>940px</h2>
-  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. In accumsan diam vitae velit. Aliquam vehicula, turpis sed egestas porttitor, est ligula egestas leo, at interdum leo ante ut risus. Cras ut nunc. Phasellus imperdiet, urna in volutpat venenatis, mauris pede euismod pede, malesuada euismod turpis enim at arcu. Sed placerat accumsan mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam suscipit, quam at placerat interdum, quam turpis placerat pede, eget sagittis arcu sapien vel mauris. Nulla faucibus turpis eget tellus. Integer mattis dapibus lorem. Donec pretium lorem vel ligula. Fusce semper consequat dui. Integer ac mi. Cras faucibus nulla quis ipsum. Nunc augue turpis, tristique et, hendrerit id, hendrerit eu, lacus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur vulputate. Proin et erat id ipsum accumsan porttitor. Suspendisse tellus arcu, scelerisque vel, feugiat sit amet, aliquet sed, velit.</p>
+  <h2>Welcome</h2>
+  <%= image_tag "pickaxe.png", :class => "twoeighty right-float" %>
+  <p>Welcome to the mcp_pants minecraft server. This is the web presence of the server; from it you may see maps of the world, read chat messages, teleport your self to other players, and take other actions. The actual minecraft server for playing is available at this same address. Enjoy! -<em>Evan</em></p>
 </div>
 <div class="generic twotwenty">
-  <h2>220px</h2>
-  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. In accumsan diam vitae velit. Aliquam vehicula, turpis sed egestas porttitor, est ligula egestas leo, at interdum leo ante ut risus. Cras ut nunc. Phasellus imperdiet, urna in volutpat venenatis, mauris pede euismod pede, malesuada euismod turpis enim at.</p>
+  <h2>Who's online</h2>
+  <ul>
+    <% Player.all.each do |player| %>
+      <li><%= link_to(player.name, player_path(player)) %></li>
+    <% end %>
+  </ul>
 </div>
 <div class="generic sevenhun end">
-  <h2>700px</h2>
-  <blockquote class="twoeighty right-float"><p>&ldquo;This is a blockquote, with a right float and a width of 280px. Even <em>this</em> maintains typographical flow!&rdquo; &mdash; <cite>Harry Roberts</cite></p></blockquote>
-  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. In accumsan diam vitae velit. Aliquam vehicula, turpis sed egestas porttitor, <strong>est ligula egestas leo</strong>, at interdum leo ante ut risus. Cras ut nunc. Phasellus imperdiet, urna in volutpat venenatis, mauris pede euismod pede, malesuada euismod turpis enim at arcu. Sed placerat accumsan mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam suscipit, quam at placerat interdum, quam turpis placerat pede, eget sagittis arcu sapien vel mauris. Nulla faucibus turpis eget tellus. Integer mattis dapibus lorem. Donec pretium lorem vel ligula. Fusce semper consequat dui. Integer ac mi. Cras faucibus nulla quis ipsum. Nunc augue turpis, tristique et, hendrerit id, hendrerit eu, lacus.</p>
+  <h2>Recent logs</h2>
+  <% LogEvent.all(:limit => 15, :order => "created_at desc").each do |log_event| %>
+    <p>
+      <%= log_event.message %>
+    </p>
+  <% end %>
+  <p><%= link_to "More logs", log_events_path %>
 </div>

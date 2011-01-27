@@ -1,10 +1,28 @@
-create LogEvent objects for every line.
+maps
+  -model
+  -zoom.it
+  -list of maps on the , with created_at
 
-logs page
-  -paginated list of 
+backups
+  -manual + download interface
+  -automatic nightly
+  -delete old backups
+
+move to vlatchex's deployment automation tool
+
+
+warps
+  talk command to set it
+    -see command <evanfarrar> setwarp "home"
+    -see who said it
+    -parse their nbt to find out where they are
+    -create a new player "evanfarrarhome" at that coords
+  will show up nested under them in the teleport menu?
 
 index page
+  -welcome message
   -currently online players
+  -recent logs
 
 player page
   -last log in
@@ -19,6 +37,5 @@ worlds
 
 
 pie in the sky
-  -map of the world
   -current time in-game
   -block stats (destroyed, placed, moved, etc)

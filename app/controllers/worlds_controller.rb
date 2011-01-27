@@ -20,7 +20,7 @@ class WorldsController < ApplicationController
   def show
     world = World.find(params[:id])
     logger.error `c10t -w tmp/server/#{world.level_name} -o public/images/worlds/#{world.id}.png -z -M 256`
-    redirect_to "/images/worlds/#{world.id}.png"
+    redirect_to "http://zoom.it/?url=http://#{root_url}images/worlds/#{world.id}.png"
   end
 
   def update
