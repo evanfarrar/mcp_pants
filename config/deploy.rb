@@ -23,8 +23,8 @@ remote_task "vlad:symlink_minecraft" do
 end
 
 task "vlad:deploy" => %w[
-    vlad:update 
     vlad:actually_update
+    vlad:update 
     vlad:bundle:install
     vlad:migrate
     vlad:symlink_minecraft
