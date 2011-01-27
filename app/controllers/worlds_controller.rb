@@ -18,7 +18,9 @@ class WorldsController < ApplicationController
   end
 
   def show
-    # render a map, eventually
+    world = World.find(params[:id])
+    logger.error `c10t -w tmp/server/#{world.level_name} -o public/images/worlds/#{world.id}.png -z -M 256`
+    redirect_to "/images/worlds/#{world.id}.png"
   end
 
   def update
