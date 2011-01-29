@@ -3,7 +3,7 @@ class Teleport
   include ActiveModel::Conversion
   extend ActiveModel::Naming
   
-  attr_accessor :from, :to
+  attr_accessor :from, :to, :warp_point
   
   def initialize(attributes = {})
     attributes.each do |name, value|
@@ -15,9 +15,11 @@ class Teleport
     false
   end
 
-
   def perform
-    HTTParty.post("http://127.0.0.1:4567/", 
-      :body => {:command => "tp #{from.name} #{to.name}"})
+    if self.warp_point
+      from.warp(warp_point.coords)
+    else
+      ServerWrapper.run_remote("tp #{from.name} #{to.name}")
+    end
   end
 end

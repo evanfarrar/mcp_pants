@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110123172420) do
+ActiveRecord::Schema.define(:version => 20110128014856) do
 
   create_table "chat_messages", :force => true do |t|
     t.string   "message"
@@ -29,6 +29,16 @@ ActiveRecord::Schema.define(:version => 20110123172420) do
   create_table "players", :force => true do |t|
     t.string   "name"
     t.datetime "last_logged_in_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "warp_points", :force => true do |t|
+    t.float    "x"
+    t.float    "y"
+    t.float    "z"
+    t.string   "name"
+    t.integer  "player_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

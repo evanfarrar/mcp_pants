@@ -9,11 +9,27 @@
 </div>
 <div class="generic twotwenty">
   <h2>Actions</h2>
-  <h3>Teleport</h3>
+  <h3>Teleport to player</h3>
   <%= form_for Teleport.new(:from => @player.id) do |form| %>
     <%= form.label :to %>
     <%= form.select :to, options_from_collection_for_select(Player.all - [@player], :id, :name) %>
     <%= form.hidden_field :from %>
     <%= form.submit %>
   <% end %>
+  <div style="display:none">
+    <h3>Teleport to warp point</h3>
+    <%= form_for Teleport.new(:from => @player.id) do |form| %>
+      <%= form.label :warp_point %>
+      <%= form.select :warp_point, options_from_collection_for_select(WarpPoint.all, :id, :name) %>
+      <%= form.hidden_field :from %>
+      <%= form.submit %>
+    <% end %>
+    <h3>Create a warp from your current location</h3>
+    <%= form_for WarpPoint.new(:player_id => @player.id) do |form| %>
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+      <%= form.hidden_field :player_id %>
+      <%= form.submit %>
+    <% end %>
+  </div>
 </div>

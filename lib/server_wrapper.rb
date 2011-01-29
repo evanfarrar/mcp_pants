@@ -13,6 +13,11 @@ class ServerWrapper
     def stop
       @@single.stop
     end
+
+    def run_remote(command)
+       HTTParty.post("http://127.0.0.1:4567/", 
+         :body => {:command => command})
+    end
   end
 
   cattr_accessor :single

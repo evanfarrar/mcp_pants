@@ -8,4 +8,8 @@ class World < ActiveRecord::Base
       end
     end
   end
+  def self.current
+    config_name = File.readlines('tmp/server/server.properties').grep(/^level-name=/).first.strip.split(/=/)[1]
+    World.find_by_level_name(config_name)
+  end
 end

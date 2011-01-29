@@ -1,4 +1,6 @@
 McpPants::Application.routes.draw do
+  resources :warp_points
+
   resources :players
   resources :worlds
   resources :chat_messages
