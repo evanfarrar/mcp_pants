@@ -9,6 +9,7 @@ class WarpPoint < ActiveRecord::Base
 
 private
   def set_coords
+    self.player.kick
     unless self.x && self.y && self.z
       self.x, self.y, self.z = self.player.position
     end

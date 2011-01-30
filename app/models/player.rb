@@ -10,16 +10,18 @@ class Player < ActiveRecord::Base
   end
 
   def warp(coords)
-    tokes = NBTFile.tokenize(File.open(self.nbt_file))
+    tokes = File.open(self.nbt_file) { |f| NBTFile.tokenize(f) }
     start_pos = tokes.index{|t| t.name == "Pos"} + 1
     tokes[start_pos...(start_pos+4)].each_with_index do |e,i|
       e.value = coords[i]
     end
     ServerWrapper.run_remote("kick #{self.name}")
     sleep(0.1)
-    NBTFile.emit(File.open(self.nbt_file, "w+")) do |writer|
-      tokes.each do |t|
-        writer.emit_token(t)
+    File.open(self.nbt_file, "w+") do |f|
+      NBTFile.emit(f) do |writer|
+        tokes.each do |t|
+          writer.emit_token(t)
+        end
       end
     end
   end
