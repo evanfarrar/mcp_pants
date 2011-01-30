@@ -12,4 +12,24 @@ class World < ActiveRecord::Base
     config_name = File.readlines('tmp/server/server.properties').grep(/^level-name=/).first.strip.split(/=/)[1]
     World.find_by_level_name(config_name)
   end
+
+  SUNRISE = 0 # 6:00
+  NOON = 6000 # 12:00
+  SUNSET = 12000 # 18:00
+  MIDNIGHT = 18000 # 24:00
+
+  def system_epoch_time
+    File.open("tmp/server/#{self.level_name}/level.dat") { |f| NBTFile.load(f).last["Data"]["Time"] }
+  end
+
+  def system_time
+    system_epoch_time % 24000
+  end
+
+  def human_time
+    hours = system_time / 1000 + 6
+    minutes = (((system_time % 1000) / 1000.0) * 60).to_i
+    "#{hours}:#{"%02d" % minutes}"
+  end
+
 end
