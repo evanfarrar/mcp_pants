@@ -27,7 +27,7 @@ class World < ActiveRecord::Base
   end
 
   def human_time
-    hours = system_time / 1000 + 6
+    hours = ((system_epoch_time + 6000) % 24000) / 1000
     minutes = (((system_time % 1000) / 1000.0) * 60).to_i
     "#{hours}:#{"%02d" % minutes}"
   end

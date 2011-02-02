@@ -11,9 +11,13 @@ describe World do
         @world.stub(:system_epoch_time).and_return(726500)
         @world.human_time.should == "12:30"
       end
-      it "is 12:30 at 726020" do
+      it "is 12:01 at 726020" do
         @world.stub(:system_epoch_time).and_return(726020)
         @world.human_time.should == "12:01"
+      end
+      it "is 5:01 at 719020" do
+        @world.stub(:system_epoch_time).and_return(719020)
+        @world.human_time.should == "5:01"
       end
     end
 
