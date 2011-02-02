@@ -1,7 +1,7 @@
 <div class="generic nineforty">
   <h1>Player Profile: <%= @player.name %></h1>
 </div>
-<div class="generic twotwenty">
+<div class="generic twotwenty loglike">
   <h2>Recent Chats</h2>
   <% @player.chat_messages.each do |chat_message| %>
     <p><%= chat_message.message %></p>

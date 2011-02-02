@@ -16,7 +16,7 @@
   <h2>Current Time</h2>
   <p><%= World.current.human_time %> (6:00-18:00 is daylight)</p>
 </div>
-<div class="generic sevenhun end">
+<div class="generic sevenhun end loglike">
   <h2>Recent logs</h2>
   <% LogEvent.all(:limit => 15, :order => "created_at desc").each do |log_event| %>
     <p>
