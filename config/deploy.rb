@@ -22,7 +22,7 @@ end
 remote_task "vlad:symlink_stuff" do
   run "ln -s #{deploy_to}/shared/minecraft #{deploy_to}/current/tmp/server"
   run "ln -s #{deploy_to}/shared/maps #{deploy_to}/current/public/images/maps"
-  run "chmod -R 777 #{deploy_to}"
+  run "chmod -R 777 #{deploy_to}/current"
 end
 
 remote_task "vlad:announce" do
