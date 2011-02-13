@@ -19,11 +19,7 @@ class WorldsController < ApplicationController
 
   def show
     map = Map.create!(:world => World.find(params[:id]))
-    if params[:zoomit]
-      redirect_to map.zoomit_url(root_url)
-    else
-      redirect_to map.url(root_url)
-    end
+    redirect_to map_path(:zoomit => params[:zoomit])
   end
 
   def update
