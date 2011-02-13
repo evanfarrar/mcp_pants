@@ -10,5 +10,17 @@ class LogEvent < ActiveRecord::Base
       tele = Teleport.new(:from => from, :to => to)
       tele.perform
     end
+    if message =~ /.*\[INFO\] <([^>]*)> !motd$/
+      sayer = Player.find_or_create_by_name($1)
+      motd = Motd.last
+      ServerWrapper.run_remote("tell #{$1} #{motd.body}") if motd
+    end
+    if message =~ /.*\[INFO\] <([^>]*)> !motd (.+)$/
+      motd = Motd.create!(:body => $2)
+    end
+    if message =~ /.*\[INFO\] ([^ ]*).*logged in with entity id/
+      motd = Motd.last
+      ServerWrapper.run_remote("tell #{$1} #{motd.body}") if motd
+    end
   end
 end

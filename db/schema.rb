@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110212032950) do
+ActiveRecord::Schema.define(:version => 20110213070205) do
 
   create_table "chat_messages", :force => true do |t|
     t.string   "message"
@@ -29,6 +29,13 @@ ActiveRecord::Schema.define(:version => 20110212032950) do
   create_table "maps", :force => true do |t|
     t.integer  "world_id"
     t.string   "path"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "motds", :force => true do |t|
+    t.string   "body"
+    t.string   "creator"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

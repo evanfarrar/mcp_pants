@@ -1,3 +1,11 @@
+<% motd = Motd.last %>
+<div class="generic nineforty">
+  <h1>Message of the Day:</h1>
+  <h1 class="motd"><%= motd.try(:body) %></h1>
+  <% if motd && motd.creator %>
+    <p>a message from <%= motd.creator %></p>
+  <% end %>
+</div>
 <div class="generic nineforty">
   <h1>Recent Server Logs</h1>
   <% @log_events.each do |log_event| %>

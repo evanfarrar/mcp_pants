@@ -1,4 +1,6 @@
 McpPants::Application.routes.draw do
+  resources :motds
+
   resources :maps
 
   resources :warp_points
