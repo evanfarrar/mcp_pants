@@ -1,10 +1,7 @@
 <div class="generic nineforty">
-  <h1>MCPPANTS &mdash; Helping minecraft one leg at a time.</h1>
-</div>
-<div class="generic nineforty">
-  <h2>Welcome</h2>
   <%= image_tag "pickaxe.png", :class => "twoeighty right-float" %>
-  <p>Welcome to the mcp_pants minecraft server. This is the web presence of the server; from it you may see maps of the world, read chat messages, teleport your self to other players, and take other actions. The actual minecraft server for playing is available at this same address. Enjoy! -<em>Evan</em></p>
+  <%=raw RDiscount.new(File.read("README.md"), :smart).to_html %>
+  
 </div>
 <div class="generic twotwenty">
   <h2>Who's online</h2>

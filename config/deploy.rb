@@ -34,7 +34,7 @@ task "vlad:deploy" => %w[
     vlad:update 
     vlad:bundle:install
     vlad:migrate
-    vlad:symlink_minecraft
+    vlad:symlink_stuff
     vlad:start_app vlad:cleanup
     vlad:announce
 ]
