@@ -6,8 +6,23 @@
     <% @worlds.each do |world| %>
       <li>
         <%= link_to world.level_name, world_path(world) %>
-        (<%= link_to "edit", edit_world_path(world) %>,
+        (<%= link_to "map", world_path(world,:zoomit => true) %>,
+        <%= link_to "zoom.it map", world_path(world,:zoomit => true) %>,
+        <%= link_to "edit", edit_world_path(world) %>,
         <%= link_to "use", world_path(world,:world =>{:use => true}),:method => :put %>)
+        <% if world.maps.any? %>
+          <ul>
+            <li>Archived maps for <%= world.level_name %>:</li>
+          </ul>
+          <ol>
+            <% world.maps.order("created_at DESC").each do |map| %>
+              <li>
+              <%= map.created_at.in_time_zone("Central Time (US & Canada)").to_s %>:
+              <%= link_to("map", map_path(map)) %>, <%= link_to("zoom.it map", map_path(map, :zoomit => true)) %>
+              </li>
+            <% end %>
+          </ol>
+        <% end %>
       </li>
     <% end %>
   </ol>

@@ -18,9 +18,12 @@ class WorldsController < ApplicationController
   end
 
   def show
-    world = World.find(params[:id])
-    logger.error `c10t -w tmp/server/#{world.level_name} -o public/images/worlds/#{world.id}.png -z -M 256`
-    redirect_to "http://zoom.it/?url=http://#{root_url}images/worlds/#{Time.now.to_i}.png"
+    map = Map.create!(:world => World.find(params[:id]))
+    if params[:zoomit]
+      redirect_to map.zoomit_url(root_url)
+    else
+      redirect_to map.url(root_url)
+    end
   end
 
   def update

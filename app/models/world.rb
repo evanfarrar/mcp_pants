@@ -1,4 +1,6 @@
 class World < ActiveRecord::Base
+  has_many :maps
+
   def use
     Dir.mkdir("tmp/server/") unless File.directory?("tmp/server")
     File.open('tmp/server/server.properties', "w+") do |file|
@@ -30,6 +32,10 @@ class World < ActiveRecord::Base
     hours = ((system_epoch_time + 6000) % 24000) / 1000
     minutes = (((system_time % 1000) / 1000.0) * 60).to_i
     "#{hours}:#{"%02d" % minutes}"
+  end
+
+  def path
+    "tmp/server/#{self.level_name}"
   end
 
 end

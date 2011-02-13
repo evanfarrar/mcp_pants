@@ -19,8 +19,10 @@ remote_task "vlad:actually_update" do
   run "cd #{deploy_to}/scm/repo; git pull"
 end
 
-remote_task "vlad:symlink_minecraft" do
+remote_task "vlad:symlink_stuff" do
   run "ln -s #{deploy_to}/shared/minecraft #{deploy_to}/current/tmp/server"
+  run "ln -s #{deploy_to}/shared/maps #{deploy_to}/current/public/images/maps"
+  run "chmod -R 777 #{deploy_to}"
 end
 
 remote_task "vlad:announce" do

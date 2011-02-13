@@ -1,4 +1,6 @@
 McpPants::Application.routes.draw do
+  resources :maps
+
   resources :warp_points
 
   resources :players

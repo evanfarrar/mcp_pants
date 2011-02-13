@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe FoosController do
+describe MapsController do
 
 end
