@@ -1,11 +1,16 @@
 class World < ActiveRecord::Base
   has_many :maps
+  def self.configgables
+    [:level_name,:hellworld,:allow_nether,
+      :view_distance,:spawn_monsters,:online_mode,
+      :spawn_animals,:max_players,:server_ip,:pvp,
+      :level_seed,:server_port,:allow_flight,:white_list]
+  end
 
   def use
     Dir.mkdir("tmp/server/") unless File.directory?("tmp/server")
     File.open('tmp/server/server.properties', "w+") do |file|
-      [:level_name,:hello_world,:spawn_monsters,:spawn_animals,
-      :online_mode,:max_players,:pvp].each do |config|
+      World.configgables.each do |config|
         file << "#{config.to_s.dasherize}=#{self.send(config)}\n"
       end
     end

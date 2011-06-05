@@ -3,34 +3,17 @@
 </div>
 <div class="generic nineforty">
   <%= form_for @world do |form| %>
-    <p>
-      <%= form.label :level_name %>
-      <%= form.text_field :level_name %>
-    </p>
-    <p>
-      <%= form.check_box :hello_world %>
-      <%= form.label :hello_world %>
-    </p>
-    <p>
-      <%= form.check_box :spawn_monsters %>
-      <%= form.label :spawn_monsters %>
-    </p>
-    <p>
-      <%= form.check_box :spawn_animals %>
-      <%= form.label :spawn_animals %>
-    </p>
-    <p>
-      <%= form.check_box :online_mode %>
-      <%= form.label :online_mode %>
-    </p>
-    <p>
-      <%= form.label :max_players %>
-      <%= form.text_field :max_players %>
-    </p>
-    <p>
-      <%= form.check_box :pvp %>
-      <%= form.label :pvp %>
-    </p>
+    <% World.configgables.each do |config| %>
+      <p>
+        <% if(World.columns_hash[config.to_s].type == :boolean) %>
+          <%= form.check_box config %>
+          <%= form.label config %>
+        <% else %>
+          <%= form.label config %>
+          <%= form.text_field config %>
+        <% end %>
+      </p>
+    <% end %>
     <%= form.submit %>
   <% end %>
 </div>

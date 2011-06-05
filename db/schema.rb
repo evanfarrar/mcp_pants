@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110213070205) do
+ActiveRecord::Schema.define(:version => 20110605150234) do
 
   create_table "chat_messages", :force => true do |t|
     t.string   "message"
@@ -65,6 +65,14 @@ ActiveRecord::Schema.define(:version => 20110213070205) do
     t.boolean "online_mode"
     t.integer "max_players"
     t.boolean "pvp"
+    t.boolean "hellworld"
+    t.boolean "allow_nether"
+    t.string  "view_distance"
+    t.string  "server_ip"
+    t.string  "server_port"
+    t.boolean "allow_flight"
+    t.boolean "white_list"
+    t.string  "level_seed"
   end
 
 end
